@@ -1,8 +1,8 @@
+import 'dotenv/config'
 import DHT from '@hyperswarm/dht'
-
 // Make a Hyperswarm DHT node that connects to the global network.
 const node = new DHT()
-const remoteKey = '';
+const remoteKey = process.env.PUBKEY;
 const pubKey = Buffer.from(remoteKey,'hex')
 
 const conn = node.connect(pubKey);
@@ -12,6 +12,6 @@ conn.on('connection', () => {
 })
 
 conn.on('data', (data) => {
-  console.log('the data sent is: ', data.toString());
+  console.log('the data sent is: ', data.toString('hex'));
 })
 
