@@ -12,6 +12,6 @@ conn.on('connection', () => {
 })
 
 conn.on('data', (data) => {
-  console.log('the data sent is: ', data.toString('hex'));
+  console.log('the data sent is: ', data.toString());
 })
 
